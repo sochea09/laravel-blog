@@ -14,8 +14,8 @@
 Route::get('/', 'Front\Home@index');
 
 //Admin
-Route::group(['prefix' => 'admin'], function(){
-    Route::get('', 'Admin\Dashboard@index');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function(){
+    Route::get('', ['as' => 'dashboard', 'uses' => 'Admin\Dashboard@index']);
     Route::get('page', ['as' => 'pageHome','uses' => 'Admin\Page@index']);
     Route::get('page/{id}/edit', 'Admin\Page@edit');
     Route::get('page/create', 'Admin\Page@create');
@@ -34,3 +34,12 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post('post/{id}/update', 'Admin\Post@update');
     Route::post('post/delete', 'Admin\Post@delete');
 });
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthAdmin@getLogin');
+Route::post('auth/login', 'Auth\AuthAdmin@postLogin');
+Route::get('auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthAdmin@getLogout']);
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthAdmin@getRegister');
+Route::post('auth/register', 'Auth\AuthAdmin@postRegister');

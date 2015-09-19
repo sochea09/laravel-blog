@@ -3,9 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Contracts\Auth\Guard;
+use Session;
+use App\Model\User as UserModel;
 
-class Authenticate
+class AuthAdmin
 {
     /**
      * The Guard implementation.
@@ -13,8 +14,6 @@ class Authenticate
      * @var Guard
      */
     protected $auth;
-    protected $redirectPath = '/admin';
-    protected $loginPath = '/login';
 
     /**
      * Create a new filter instance.
@@ -22,11 +21,10 @@ class Authenticate
      * @param  Guard  $auth
      * @return void
      */
-    public function __construct(Guard $auth)
+    public function __construct()
     {
-        $this->auth = $auth;
-    }
 
+    }
     /**
      * Handle an incoming request.
      *
@@ -36,14 +34,19 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
+        $user = Session::get('user');
 
-        if ($this->auth->guest()) {
-            if ($request->ajax()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('auth/login');
-            }
+        if(!$user){
+            return view('auth.login');
         }
+
+        $userCk = UserModel::where("rol_id", 1)->first();
+
+        if(count($userCk) <=0 ){
+            return "Error role";
+        }
+
+        $request->auth = $userCk;
 
         return $next($request);
     }
