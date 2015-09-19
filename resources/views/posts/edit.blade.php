@@ -15,11 +15,12 @@ edit
 @stop
 @section('content')
 
-       {!! Form::open(['url' => 'admin/post/'.$post->pos_id.'/update']) !!}
+       {!! Form::open(['url' => 'admin/post/'.$post->pos_id.'/update', 'files' => 'true']) !!}
 
                @include('posts.form-edit', ['buttonTitle' => ' Save Change','buttonClass'=>'btn-save','iButtonClass'=>'fa fa-save',
                     'pos_name' => $post->pos_name,
                     'pos_filename' => $post->pos_filename,
+                    'imgsrc' => "/img/media/285x170/".$post->image,
                     'pos_sum' => $post->pos_sum,
                     'pos_desc' => $post->pos_desc
                ])

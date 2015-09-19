@@ -7,18 +7,24 @@
 <div class="content">
         <div class="form-group">
         	{!! Form::label('name', 'Name:') !!}
-        	{!! Form::text('pos_name', null, ['class' => 'form-control']) !!}
+        	{!! Form::text('pos_name', null, ['class' => 'form-control', 'id' => 'name']) !!}
         </div>
 
         <div class="form-group">
-        	{!! Form::label('filename', 'FileName:') !!}
-        	{!! Form::text('pos_filename', null, ['class' => 'form-control']) !!}
+        	{!! Form::label('slug', 'Permalink :') !!}
+        	{!! Form::text('pos_filename', null, ['id' => 'permalien']) !!}
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                <img id="blah" src="#" alt="your image" width="275" height="133"/>
+                {!! Form::file('image', ['class' => 'upload-box', 'id' => 'imgInp', 'accept' => 'accept="image/gif, image/jpeg, image/png"', 'multiple' => 'multiple']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('summary', 'Summary:') !!}
+                {!! Form::textarea('pos_sum', null, ['class' => 'form-control']) !!}
+            </div>
         </div>
 
-        <div class="form-group">
-            {!! Form::label('summary', 'Summary:') !!}
-            {!! Form::textarea('pos_sum', null, ['class' => 'form-control']) !!}
-        </div>
 
         <div class="form-group">
             {!! Form::label('description', 'Description:') !!}

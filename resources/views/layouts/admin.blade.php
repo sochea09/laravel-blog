@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="{{URL::to('css/sb-admin.css')}}" rel="stylesheet">
+    <link href="{{URL::to('css/admin_style.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{URL::to('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">

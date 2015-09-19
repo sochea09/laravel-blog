@@ -16,7 +16,7 @@ create
 @stop
 @section('content')
 
-       {!! Form::open(['url' => 'admin/post/store']) !!}
+       {!! Form::open(['url' => 'admin/post/store', 'files' => 'true']) !!}
 
            @include('posts.form-create', ['buttonTitle' => ' Save','buttonClass'=>'btn-save','iButtonClass'=>'fa fa-save'])
 

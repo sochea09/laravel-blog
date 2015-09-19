@@ -14,10 +14,15 @@
         	{!! Form::label('filename', 'FileName:') !!}
         	{!! Form::text('pos_filename', ($pos_filename), ['class' => 'form-control']) !!}
         </div>
-
-        <div class="form-group">
-            {!! Form::label('summary', 'Summary:') !!}
-            {!! Form::textarea('pos_sum', ($pos_sum), ['class' => 'form-control']) !!}
+        <div class="form-inline">
+            <div class="form-group">
+                <img id="blah" src="{!! $imgsrc !!}" alt="your image" width="275" height="133"/>
+                {!! Form::file('image', ['class' => 'upload-box', 'id' => 'imgInp', 'accept' => 'accept="image/gif, image/jpeg, image/png"', 'multiple' => 'multiple']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('summary', 'Summary:') !!}
+                {!! Form::textarea('pos_sum', ($pos_sum), ['class' => 'form-control']) !!}
+            </div>
         </div>
 
         <div class="form-group">
