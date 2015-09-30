@@ -11,8 +11,17 @@
         </div>
 
         <div class="form-group">
+          {!! Form::Label('cats', 'Category:') !!}
+          <select class="form-control" name="cat_id">
+            @foreach($cats as $cat)
+              <option value="{{$cat->cat_id}}">{{$cat->cat_desc}}</option>
+            @endforeach
+          </select>
+        </div>
+
+        <div class="form-group">
         	{!! Form::label('slug', 'Permalink :') !!}
-        	{!! Form::text('pos_filename', null, ['id' => 'permalien']) !!}
+        	{!! Form::text('pos_slug', null, ['id' => 'permalien']) !!}
         </div>
         <div class="form-inline">
             <div class="form-group">

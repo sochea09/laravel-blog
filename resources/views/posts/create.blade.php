@@ -36,7 +36,7 @@ create
 		codeSnippet_theme: 'Monokai',
 		language: '{{ config('app.locale') }}',
 		height: 100,
-		filebrowserBrowseUrl: baseUrl+'/admin/media',
+		filebrowserBrowseUrl: baseUrl+'/admin/media/gallery',
 		toolbarGroups: [
 			{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
 			{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
@@ -60,13 +60,6 @@ create
 
 	CKEDITOR.replace( 'pos_desc', config);
 
-	$("#title").keyup(function(){
-			var str = sansAccent($(this).val());
-			str = str.replace(/[^a-zA-Z0-9\s]/g,"");
-			str = str.toLowerCase();
-			str = str.replace(/\s/g,'-');
-			$("#permalien").val(str);
-		});
 
   </script>
 

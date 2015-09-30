@@ -84,7 +84,7 @@ create
     $(document).ready(function(){
 
         $('#crop').Jcrop({
-            aspectRatio: 1,
+            aspectRatio: 617/324,
             onSelect: atualizeCoords
         });
 

@@ -19,8 +19,8 @@ edit
 
                @include('posts.form-edit', ['buttonTitle' => ' Save Change','buttonClass'=>'btn-save','iButtonClass'=>'fa fa-save',
                     'pos_name' => $post->pos_name,
-                    'pos_filename' => $post->pos_filename,
-                    'imgsrc' => "/img/media/285x170/".$post->image,
+                    'pos_slug' => $post->pos_slug,
+                    'imgsrc' => "/img/media/285x170/".$post->pos_image,
                     'pos_sum' => $post->pos_sum,
                     'pos_desc' => $post->pos_desc
                ])
@@ -40,7 +40,7 @@ edit
 		codeSnippet_theme: 'Monokai',
 		language: '{{ config('app.locale') }}',
 		height: 100,
-		filebrowserBrowseUrl: baseUrl+'/admin/media',
+		filebrowserBrowseUrl: baseUrl+'/admin/media/gallery',
 		toolbarGroups: [
 			{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
 			{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },

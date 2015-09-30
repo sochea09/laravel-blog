@@ -20,8 +20,8 @@ Page
                     <tr>
                         <th class="text-center"><input type="checkbox" name="selectall" id="selectall" ></th>
                         <th>Name</th>
-                        <th>File Name</th>
-                        <th>Description</th>
+                        <th>Slug</th>
+                        <th>Category</th>
                         <th>Order</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -32,8 +32,8 @@ Page
                         <tr>
                             <td class="text-center"><input type="checkbox" name="did[]" value="{!! $v->pag_id !!}" class="did" ></td>
                             <td>{!! $v->pag_name !!}</td>
-                            <td>{!! $v->pag_filename !!}</td>
-                            <td>{!! $v->pag_desc !!}</td>
+                            <td>{!! $v->pag_slug !!}</td>
+                            <td>{!! $v->pag_cat_id !!}</td>
                             <td>{!! $v->pag_order !!}</td>
                             <td>{!! $v->pag_status_cd !!}</td>
                             <td><a href="{{ URL::to('admin/page/'.$v->pag_id.'/edit') }}"><i class="fa fa-pencil"> Edit</i></a></td>

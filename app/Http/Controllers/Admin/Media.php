@@ -9,6 +9,7 @@ use App\Model\Media as MediaModel;
 use Intervention\Image\Facades\Image;
 use Session;
 use Redirect;
+use URL;
 
 class Media extends Controller
 {
@@ -90,7 +91,7 @@ class Media extends Controller
         $media->med_name = $img_hash_name;
         $media->med_title = $request->med_title;
         $media->med_desc = $request->med_desc;
-        $media->med_link = '/img/media/'.$img_hash_name;
+        $media->med_link = URL::to('/').'/img/media/'.$img_hash_name;
 
         if(!$media->save()){
             return 'Error';
@@ -114,6 +115,11 @@ class Media extends Controller
                 return "error";
             }
         }
+    }
+
+    public function gallery(){
+        $medias = MediaModel::where('med_status_cd', 'ACT')->latest('updated_at')->get();
+        return view('medias.gallery', compact('medias'));
     }
 
 

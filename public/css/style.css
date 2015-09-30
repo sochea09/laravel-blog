@@ -563,3 +563,19 @@ body{
     background-color: #444;
 }
 /**** End Scrollup ****/
+
+.media-body p{
+    text-align: left;
+    color: #888;
+    word-wrap: break-word;
+    color: #000;
+}
+.media-body h4 {
+    text-align: left;
+    color: #888;
+}
+.our_team .container{
+    color: #000;
+    word-wrap: break-word;
+    text-align: left;
+}

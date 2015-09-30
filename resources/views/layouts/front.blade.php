@@ -38,21 +38,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="ournav">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Company</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Programming</a></li>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Desktop</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Web Hosting</a></li>
-          </ul>
-        </li>
+        <li @if(Request::is('/')) class="active" @endif><a href="/"><span style="font-size: 16px; padding-bottom: 5px;" class="glyphicon glyphicon-home"></span></a></li>
+        @foreach($menus as $menu)
+
+            <li @if(Request::is('page/'.$menu->pag_slug.'*')) class="active" @endif><a href="{{URL::to('page/'.$menu->pag_slug) }}">{{ $menu->pag_name }}</a></li>
+        @endforeach
         <li><a href="#">Map</a></li>
-        <li><a href="#">Contact</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -79,19 +70,19 @@
           <li>Contact</li>
         </ul>
         <ul class="list-unstyled social-list">
-          <li><img src="images/social-bookmarks/facebook.png" alt="Facebook"></li>
-          <li><img src="images/social-bookmarks/gplus.png" alt="Google Plus"></li>
-          <li><img src="images/social-bookmarks/twitter.png" alt="Twitter"></li>
-          <li><img src="images/social-bookmarks/pinterest.png" alt="Pinterest"></li>
-          <li><img src="images/social-bookmarks/rss.png" alt="Rss"></li>
-          <li><img src="images/social-bookmarks/email.png" alt="Email"></li>
+          <li><img src="{{URL::to('/')}}/images/social-bookmarks/facebook.png" alt="Facebook"></li>
+          <li><img src="{{URL::to('/')}}/images/social-bookmarks/gplus.png" alt="Google Plus"></li>
+          <li><img src="{{URL::to('/')}}/images/social-bookmarks/twitter.png" alt="Twitter"></li>
+          <li><img src="{{URL::to('/')}}/images/social-bookmarks/pinterest.png" alt="Pinterest"></li>
+          <li><img src="{{URL::to('/')}}/images/social-bookmarks/rss.png" alt="Rss"></li>
+          <li><img src="{{URL::to('/')}}/images/social-bookmarks/email.png" alt="Email"></li>
         </ul>
       </div>
       <div class="col-lg-4 col-md-6">
         <h3>Latest Articles</h3>
         <div class="media">
           <a class="pull-left" href="#">
-            <img class="media-object" src="images/articles/01.jpg" alt="Image 01" />
+            <img class="media-object" src="{{URL::to('/')}}/images/articles/01.jpg" alt="Image 01" />
           </a>
           <div class="media-body">
             <h4 class="media-heading">
@@ -102,7 +93,7 @@
         </div>
         <div class="media">
           <a class="pull-left" href="#">
-            <img class="media-object" src="images/articles/02.jpg" alt="Image 02" />
+            <img class="media-object" src="{{URL::to('/')}}/images/articles/02.jpg" alt="Image 02" />
           </a>
           <div class="media-body">
             <h4 class="media-heading">
@@ -113,7 +104,7 @@
         </div>
         <div class="media">
           <a class="pull-left" href="#">
-            <img class="media-object" src="images/articles/03.jpg" alt="Image 03" />
+            <img class="media-object" src="{{URL::to('/')}}/images/articles/03.jpg" alt="Image 03" />
           </a>
           <div class="media-body">
             <h4 class="media-heading">
@@ -125,10 +116,10 @@
       </div>
       <div class="col-lg-4">
         <h3>Our Awesome Work</h3>
-        <img class="img-thumnail" src="images/work/01.jpg" alt="Image 01" />
-        <img class="img-thumnail" src="images/work/02.jpg" alt="Image 02" />
-        <img class="img-thumnail" src="images/work/03.jpg" alt="Image 03" />
-        <img class="img-thumnail" src="images/work/04.jpg" alt="Image 04" />
+        <img class="img-thumnail" src="{{URL::to('/')}}/images/work/01.jpg" alt="Image 01" />
+        <img class="img-thumnail" src="{{URL::to('/')}}/images/work/02.jpg" alt="Image 02" />
+        <img class="img-thumnail" src="{{URL::to('/')}}/images/work/03.jpg" alt="Image 03" />
+        <img class="img-thumnail" src="{{URL::to('/')}}/images/work/04.jpg" alt="Image 04" />
       </div>
     </div>
   </div>
@@ -137,11 +128,6 @@
   </div>
 </section>
 <!-- End Ultimate Footer Section -->
-<!-- Start Section Loading -->
-<section class="loading-overlay text-center">
-  <h1>The Website Is Loading Now</h1>
-</section>
-<!-- End Section Loading -->
 <!-- Start Scroll To Top -->
 <div id="scroll-top">
   <i class="fa fa-chevron-up fa-3x"></i>

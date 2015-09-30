@@ -7,12 +7,20 @@
 <div class="content">
         <div class="form-group">
         	{!! Form::label('name', 'Name:') !!}
-        	{!! Form::text('pos_name', ($pos_name), ['class' => 'form-control']) !!}
+        	{!! Form::text('pos_name', ($pos_name), ['class' => 'form-control', 'id' => 'name']) !!}
         </div>
 
         <div class="form-group">
-        	{!! Form::label('filename', 'FileName:') !!}
-        	{!! Form::text('pos_filename', ($pos_filename), ['class' => 'form-control']) !!}
+            {!! Form::label('slug', 'Permalink :') !!}
+            {!! Form::text('pos_slug', ($pos_slug), ['id' => 'permalien']) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::Label('cats', 'Category:') !!}
+          <select class="form-control" name="cat_id">
+            @foreach($cats as $cat)
+              <option value="{{$cat->cat_id}}" @if($post->cat_id == $cat->cat_id) selected="selected" @endif>{{$cat->cat_desc}}</option>
+            @endforeach
+          </select>
         </div>
         <div class="form-inline">
             <div class="form-group">

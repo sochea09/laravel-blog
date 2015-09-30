@@ -7,12 +7,22 @@
 <div class="content">
         <div class="form-group">
         	{!! Form::label('name', 'Name:') !!}
-        	{!! Form::text('pag_name', null, ['class' => 'form-control']) !!}
+        	{!! Form::text('pag_name', null, ['class' => 'form-control', 'id' => 'name']) !!}
         </div>
 
         <div class="form-group">
-        	{!! Form::label('filename', 'FileName:') !!}
-        	{!! Form::text('pag_filename', null, ['class' => 'form-control']) !!}
+            {!! Form::label('slug', 'Permalink :') !!}
+            {!! Form::text('pag_slug', null, ['id' => 'permalien']) !!}
+        </div>
+
+        <div class="form-group">
+          {!! Form::Label('cats', 'Category:') !!}
+          <select class="form-control" name="cat_id">
+            <option value="0">Select use cat as page</option>
+            @foreach($cats as $cat)
+              <option value="{{$cat->cat_id}}">{{$cat->cat_desc}}</option>
+            @endforeach
+          </select>
         </div>
 
         <div class="form-group">

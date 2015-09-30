@@ -52,6 +52,7 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
+                <li><a href="{{URL::to('/')}}" target="_blank">Visit Site</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
@@ -168,6 +169,14 @@
                     </li>
                     <li @if (Request::is('admin/post*')) class="active" @endif>
                         <a href="/admin/post"><i class="fa fa-fw fa-pencil"></i> Post</a>
+                    </li>
+                    <li @if(Request::is('admin/setting*')) class="active" @endif>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-wrench"></i> Setting <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li @if(Request::is('admin/setting/category*')) class="active" @endif>
+                                <a href="/admin/setting/category">Category</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

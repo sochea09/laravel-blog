@@ -18,12 +18,12 @@ Media
         <!-- Start Section Our Team -->
         <section class="our_team text-center">
           <div class="team">
-            <div class="container">
+            <div class="container col-lg-12 col-md-12">
               <div class="row">
                 @foreach($medias as $media)
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-4 col-sm-6" style="padding-bottom: 25px;">
                       <div class="person">
-                        <img width="150" height="150" class="img-circle" src="{{URL::to('/').$media->med_link}}" alt="Chris Coyier"/>
+                        <img width="150" height="150" class="img-circle" src="{{$media->med_link}}" alt="Chris Coyier"/>
                         <input type="checkbox" name="did[]" value="{!! $media->med_id !!}" class="did" >
                         <h4>{{$media->med_title}}</h4>
                         <p>{{$media->med_desc}}</p>

@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'Front\Home@index');
+Route::get('/', ['as' => 'home', 'uses' => 'Front\Home@index']);
+Route::get('/page/{slug}', 'Front\Page@index');
+Route::get('/article/{id}', 'Front\Page@getDetail');
 
 //Admin
 Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function(){
@@ -24,6 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function(){
     Route::get('post/{id}/edit', 'Admin\Post@edit');
     Route::get('media', ['as' => 'mediaHome', 'uses' => 'Admin\Media@index']);
     Route::get('media/create', ['as' => 'createImage','uses' => 'Admin\Media@create']);
+    Route::get('media/gallery', 'Admin\Media@gallery');
     Route::post('page/store', 'Admin\Page@store');
     Route::post('page/{id}/update', 'Admin\Page@update');
     Route::post('page/delete', 'Admin\Page@delete');
@@ -33,6 +36,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function(){
     Route::post('media/delete', 'Admin\Media@delete');
     Route::post('post/{id}/update', 'Admin\Post@update');
     Route::post('post/delete', 'Admin\Post@delete');
+});
+
+//Setting
+Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function(){
+    Route::get('setting/category', ['as'=>'catHome', 'uses'=>'Admin\Setting\Category@index']);
+    Route::get('setting/category/{id}/edit', 'Admin\Setting\Category@edit');
+    Route::get('setting/category/create', 'Admin\Setting\Category@create');
+    Route::post('setting/category/store', 'Admin\Setting\Category@store');
+    Route::post('setting/category/{id}/update', 'Admin\Setting\Category@update');
+    Route::post('setting/category/delete', 'Admin\Setting\Category@delete');
+
 });
 
 // Authentication routes...
