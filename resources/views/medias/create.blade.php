@@ -3,7 +3,7 @@
 	{!! HTML::style('jcrop/css/jcrop.min.css') !!}
 	<style>
 	    .jcrop-keymgr{
-	        opacity: 0;
+	        opacity: 2;
 	    }
 	</style>
 @stop
@@ -82,10 +82,10 @@ create
     }
 
     $(document).ready(function(){
-
         $('#crop').Jcrop({
             aspectRatio: 617/324,
-            onSelect: atualizeCoords
+            onSelect: atualizeCoords,
+            onChange: atualizeCoords
         });
 
         $('#myModal').modal({show: modal});

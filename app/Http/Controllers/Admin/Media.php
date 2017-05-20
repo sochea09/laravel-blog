@@ -25,15 +25,9 @@ class Media extends Controller
     }
 
     public function store(Request $request){
-
         $uniq = md5(uniqid(time(), true));
 
-        if(!$request->file('image')){
-            return Redirect::back();
-        }
-
         if($request->hasFile('image')) {
-
             $image = $request->file('image');
 
             $ext = $image->getClientOriginalExtension();
@@ -65,7 +59,6 @@ class Media extends Controller
     }
 
     public function crop(Request $request){
-
         Session::forget('modal');
 
         $img = Session::get('img');
