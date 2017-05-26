@@ -50,6 +50,7 @@ class Page extends Controller
 
     public function update(Request $request){
         $id = $request->route('id');
+        $catId = [$request->input('cat_id')];
 
         $page = PageModel::findOrFail($id);
         $page->pag_name = ucfirst($request->input('pag_name'));
@@ -57,11 +58,12 @@ class Page extends Controller
         $page->pag_status_cd = "ACT";
         $page->pag_desc = $request->input('pag_desc');
         $page->pag_order = $request->input('pag_order');
-        $page->pag_cat_id = $request->input('cat_id');
 
         if(!$page->save()){
             return "error";
         }
+
+        $page->categories()->sync($catId);
 
         return Redirect::route('pageHome');
     }

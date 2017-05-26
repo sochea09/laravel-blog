@@ -14,7 +14,7 @@ class Page extends Controller
 {
     public function index(Request $request){
         $slug = $request->route('slug');
-        $isCategory = PageModel::where('pag_slug', $slug)->pluck('pag_cat_id');
+        $isCategory = PageModel::where('pag_slug', $slug)->pluck('is_category');
 
         $datas = "";
         $page = "";
