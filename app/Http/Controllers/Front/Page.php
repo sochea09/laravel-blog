@@ -14,24 +14,22 @@ class Page extends Controller
 {
     public function index(Request $request){
         $slug = $request->route('slug');
-        $isCategory = PageModel::where('pag_slug', $slug)->pluck('is_category');
-
+        $pag = PageModel::where('pag_slug', $slug)->first(['pag_id']);
+        $pageCats = PageModel::find($pag->pag_id)->categories()->get()->pluck('cat_id');
         $datas = "";
         $page = "";
-        if($isCategory > 0){
-            $datas = DB::table('CATEGORY as cat')
-                    ->join('POST as pos', function($join){
+        if(!$pageCats->isEmpty()){
+            $datas = DB::table('category as cat')
+                    ->join('post as pos', function($join){
                         $join->on('pos.cat_id', '=', 'cat.cat_id');
                     })
-                    ->where('cat.cat_id', '=', $isCategory)
+                    ->whereIn('cat.cat_id', $pageCats)
                     ->select('pos.pos_id', 'pos.pos_name', 'pos_image', 'pos_sum')
                     ->get();
         }else{
             $page = PageModel::where('pag_slug', $slug)->first(['pag_desc']);
         }
-
         $menus = $this->getMenu();
-
         return view('front.page', compact('datas','menus', 'page'));
     }
 
