@@ -12,12 +12,12 @@ body{
 }
 
 /* Active link */
-.navbar-inverse .navbar-nav > .active > a,
+/*.navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus
 {
-    /*background-color: #E41B17;*/
-}
+    background-color: #E41B17;
+}*/
 /* Navbar link */
 .navbar-inverse .navbar-nav > li > a
 {
@@ -34,10 +34,10 @@ body{
     font-size: 30px;
     line-height: 40px;
 }
-.navbar-inverse .navbar-brand span
+/*.navbar-inverse .navbar-brand span
 {
-    /*color: #E41B17;*/
-}
+    color: #E41B17;
+}*/
 
 /* Dropdown Menu */
 .dropdown-menu
@@ -151,10 +151,10 @@ body{
 {
     font-weight: bold;
 }
-.about h1 span
+/*.about h1 span
 {
-    /*color: #E41B17;*/
-}
+    color: #E41B17;
+}*/
 /**** End Section About ****/
 /**** Start Section Features ****/
 .features
