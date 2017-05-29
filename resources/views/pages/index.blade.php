@@ -7,12 +7,13 @@ Page
 @stop
 @section('content')
 
-        <div class="list">
-            <div class="list-right">
-                <button type="button" onclick="window.location.href='{{ URL::to('admin/page/create') }}'" data-toggle="tooltip" title="Add New" class="btn-addnew"><i class="fa fa-plus"> Add New</i></button>
-                <button type="button" name="bt-delete" class="btn-delete"><i class="fa fa-trash-o"> Delete</i></button>
-            </div>
+    <div class="list">
+        <div class="list-right">
+            <button type="button" onclick="window.location.href='{{ URL::to('admin/page/create') }}'" data-toggle="tooltip" title="Add New" class="btn-addnew"><i class="fa fa-plus"> Add New</i></button>
+            <button type="button" name="bt-delete" class="btn-delete"><i class="fa fa-trash-o"> Delete</i></button>
         </div>
+    </div>
+    <br>
     <div class="content">
         <div class="table-responsive">
             <table class="table table-bordered" width="100%">

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- First Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Bootstrap 3</title>
+	<title>Laravel-Blog</title>
 	<!--include CSS-->
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
   <link rel="stylesheet" type="text/css" href="{{URL::to('css/font-awesome.min.css')}}">

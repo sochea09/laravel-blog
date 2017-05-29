@@ -570,6 +570,13 @@ body{
     word-wrap: break-word;
     color: #000;
 }
+
+.media img{
+    margin: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.21);
+    padding: 5px;
+}
+
 .media-body h4 {
     text-align: left;
     color: #888;
